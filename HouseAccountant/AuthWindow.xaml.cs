@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace HouseAccountant
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для AuthWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AuthWindow : Window
     {
-        public MainWindow()
+        public AuthWindow()
         {
             InitializeComponent();
-        }
-
-
-        private void ButtonClick(object sender, RoutedEventArgs e)
-        {
-            AuthWindow authWindow = new AuthWindow();
-            authWindow.Show();
         }
     }
 }
