@@ -54,6 +54,7 @@
     }
         .NavbarItem label {
             margin: 10px;
+            user-select: none;
         }
         .NavbarItem:hover {
             background-color: #04428a;

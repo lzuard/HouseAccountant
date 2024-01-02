@@ -13,6 +13,7 @@
         border-radius: 50%;
         width: 50px;
         height: 50px;
+        user-select: none;
     }
     #container {
         border: solid 0px black;
@@ -24,6 +25,7 @@
         background-color: #2a8afa;
     }
     #container label{
+        user-select: none;
         width: 200px
     }
 </style>
