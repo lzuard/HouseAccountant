@@ -1,3 +1,5 @@
+using WebAPI.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,6 +17,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//Auth middleWare is not ready yet
+//app.UseMiddleware<AuthMiddleware>();
 
 app.UseHttpsRedirection();
 
