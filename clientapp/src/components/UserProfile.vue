@@ -22,6 +22,7 @@
         padding: 5px;
         margin: 5px;
         display: flex;
+        color: white;
         align-items: center;
         background-color: #2a8afa;
     }

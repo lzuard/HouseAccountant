@@ -52,6 +52,7 @@
         padding: 5px;
         border: solid 1px #286dbd;
         border-radius: 10px;
+        color: white;
         background-color: #2a8afa;
     }
         .NavbarItem label {
