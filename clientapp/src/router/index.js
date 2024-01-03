@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import MainPage from '@/pages/MainPage.vue'
+import GridPage from '@/pages/GridPage.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
         path: '/',
         name: 'main-page',
         component: MainPage
+    },
+    {
+        path: '/GridPage',
+        name: 'grid-page',
+        component: GridPage
     },
   {
     path: '/about',

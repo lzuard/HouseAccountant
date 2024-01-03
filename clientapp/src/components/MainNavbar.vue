@@ -1,11 +1,13 @@
 <template>
-    <div id="container">
+    <div id="navbar-container">
         <div class="Navbar">
-            <div class="NavbarItem">
+            <div class="NavbarItem"
+                 @click="$router.push('/')">
                 <label>Main Page</label>
             </div>
-            <div class="NavbarItem">
-                <label>Second Page</label>
+            <div class="NavbarItem"
+                 @click="$router.push('/GridPage')">
+                <label>Grid</label>
             </div>
             <div class="NavbarItem">
                 <label>Some other page</label>
@@ -37,7 +39,7 @@
         font-size: 20px;
         font-family: sans-serif
     }
-    #container {
+    #navbar-container {
         display: flex;
         justify-content: space-between;
         background-color: #286dbd;
