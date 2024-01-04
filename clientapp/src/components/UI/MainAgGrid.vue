@@ -20,12 +20,22 @@
         },
         setup() {
             const rowData = ref([
-                {column1: "cell 1-1", column2: "cell 1-2"},
-                {column1: "cell 2-2", column2: "cell 2-2"}
+                { Date: "12.12.2023", Time: "11:05", Card: "Platinum", Type: "Grocery", Amount: "10000", Description: "Perekrestok" },
+                { Date: "12.12.2023", Time: "11:05", Card: "Platinum", Type: "Grocery", Amount: "10000", Description: "Perekrestok" },
+                { Date: "12.12.2023", Time: "11:05", Card: "Platinum", Type: "Grocery", Amount: "10000", Description: "Perekrestok" },
+                { Date: "12.12.2023", Time: "11:05", Card: "Platinum", Type: "Grocery", Amount: "10000", Description: "Perekrestok" },
+                { Date: "12.12.2023", Time: "11:05", Card: "Platinum", Type: "Grocery", Amount: "10000", Description: "Perekrestok" },
+                { Date: "12.12.2023", Time: "11:05", Card: "Platinum", Type: "Grocery", Amount: "10000", Description: "Perekrestok" },
             ])
             const colDefs = ref([
-                {field: "column1"},
-                {field: "column2"}
+                { field: "Date" },
+                { field: "Time" },
+                { field: "Card" },
+                { field: "Type" },
+                { field: "Amount" },
+                { field: "Description" },
+
+
             ])
             const gridOptions = ref({
                 defaultColDef:{

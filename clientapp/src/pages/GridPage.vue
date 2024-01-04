@@ -1,10 +1,50 @@
 <template>
-    <h1>This is grid</h1>
+    <button @click="getData"
+            >
+    Get data
+    </button>
+    <button
+            @click="uploadFile"
+            >
+    Upload file
+    </button>
     <main-ag-grid />
-    <h1>This is the end of grid</h1>
 </template>
 
 <script>
+    import axios from 'axios'
+
+    export default {
+        data() {
+            return {
+                headerRow: {id:''},
+                dataRows: {id: ''}
+            }
+        },
+        methods: {
+            async getData() {
+                console.log("getData")
+                await this.fetchData()
+            },
+            async fetchData() {
+                try {
+                    const url = process.env.VUE_APP_ROOT_API + process.env.VUE_APP_GRID_GET_DATA
+                    const responce = await axios.get(url, {
+                        params: {
+                            _id: 1
+                        }
+                    })
+                    console.log("responce is"+responce.data)
+                }
+                catch (e) {
+                    console.log("Error: " + e)
+                }
+            },
+            uploadFile() {
+                console.log("uploadData")
+            }
+        }
+    }
 
 </script>
 
