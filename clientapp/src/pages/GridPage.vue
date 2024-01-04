@@ -1,11 +1,11 @@
 <template>
-    <button @click="getData">
+    <main-button @click="getData">
         Get data
-    </button>
+    </main-button>
     <input type="file" @change="onFileChange" />
-    <button @click="uploadData">
+    <main-button @click="uploadData">
         Send data
-    </button>
+    </main-button>
     <main-ag-grid />
 </template>
 

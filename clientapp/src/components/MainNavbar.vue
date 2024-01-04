@@ -9,14 +9,9 @@
                  @click="$router.push('/GridPage')">
                 <label>Grid</label>
             </div>
-            <div class="NavbarItem">
-                <label>Some other page</label>
-            </div>
-            <div class="NavbarItem">
-                <label>Small Page</label>
-            </div>
-            <div class="NavbarItem">
-                <label>Last Page</label>
+            <div class="NavbarItem"
+                @click="$router.push('/UploadPage')">
+                <label>Upload Data</label>
             </div>
         </div>
         <UserProfile/>
