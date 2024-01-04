@@ -28,7 +28,7 @@
             },
             async fetchData() {
                 try {
-                    const url = process.env.VUE_APP_ROOT_API + process.env.VUE_APP_GRID_GET_DATA
+                    const url = process.env.VUE_APP_ROOT_API + process.env.VUE_APP_GRID_API
                     const responce = await axios.get(url, {
                         params: {
                             _id: 1

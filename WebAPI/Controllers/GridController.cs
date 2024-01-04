@@ -2,6 +2,8 @@
 
 namespace WebAPI.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class GridController : ControllerBase
     {
         [HttpGet]
