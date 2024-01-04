@@ -1,12 +1,10 @@
 <template>
-    <button @click="getData"
-            >
-    Get data
+    <button @click="getData">
+        Get data
     </button>
-    <button
-            @click="uploadFile"
-            >
-    Upload file
+    <input type="file" @change="onFileChange" />
+    <button @click="uploadData">
+        Send data
     </button>
     <main-ag-grid />
 </template>
@@ -18,10 +16,14 @@
         data() {
             return {
                 headerRow: {id:''},
-                dataRows: {id: ''}
+                dataRows: {id: ''},
+                selectedFile: null
             }
         },
         methods: {
+            onFileChange(e){
+                this.selectedFile = e.target.files[0];
+            },
             async getData() {
                 console.log("getData")
                 await this.fetchData()
@@ -40,9 +42,28 @@
                     console.log("Error: " + e)
                 }
             },
-            uploadFile() {
-                console.log("uploadData")
+            uploadData() {
+                try{
+/*                    if (this.SelectedFile == null){ 
+                        return
+                    }*/
+
+                    console.log("uploadData")
+                    let formData = new FormData();
+                    formData.append('file', this.selectedFile);
+
+                    const url = process.env.VUE_APP_ROOT_API + process.env.VUE_APP_GRID_API
+                    axios.post(url, formData, {
+                        headers: {
+                            'Content-Type': 'multiplatform/form-data'
+                        }
+                    })
+                    }
+                catch(e){
+                    console.log("Error "+ e)
+                }
             }
+            
         }
     }
 
