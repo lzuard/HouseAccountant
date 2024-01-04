@@ -24,7 +24,7 @@
         display: flex;
         color: white;
         align-items: center;
-        background-color: #2a8afa;
+        background-color: var(--colors-light-blue);
     }
     #container label{
         user-select: none;

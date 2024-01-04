@@ -10,13 +10,12 @@
         components: {
             MainNavbar
         }
-
     }
 </script>
 
 <style>
     body {
         margin: 0;
-        background-color: #181818;
+        background-color: var(--color-app-backround);
     }
 </style>

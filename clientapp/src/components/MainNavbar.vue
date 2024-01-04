@@ -42,7 +42,7 @@
     #navbar-container {
         display: flex;
         justify-content: space-between;
-        background-color: #286dbd;
+        background-color: var(--colors-middle-blue);
     }
     .Navbar{
         display: flex;
@@ -50,17 +50,17 @@
     .NavbarItem {
         margin: 10px 5px 20px 25px;
         padding: 5px;
-        border: solid 1px #286dbd;
+        border: solid 1px var(--colors-middle-blue);
         border-radius: 10px;
         color: white;
-        background-color: #2a8afa;
+        background-color: var(--colors-light-blue);
     }
         .NavbarItem label {
             margin: 10px;
             user-select: none;
         }
         .NavbarItem:hover {
-            background-color: #04428a;
+            background-color: var(--colors-dark-blue);
         }
 
 </style>

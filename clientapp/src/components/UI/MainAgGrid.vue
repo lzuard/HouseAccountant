@@ -61,7 +61,7 @@
         margin: 40px;
     }
     .ag-theme-quartz-dark {
-        --ag-background-color: #181818;
-        --ag-header-background-color: #286dbd;
+        --ag-background-color: var(--color-app-backround);
+        --ag-header-background-color: var(--colors-middle-blue);
     }
 </style>

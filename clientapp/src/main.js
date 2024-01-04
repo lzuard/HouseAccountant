@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import UiComponents from '@/components/UI'
 
+import '@/assets/styles/colors-dark-theme.css'
+
+
 const createdApp = createApp(App)
 
 UiComponents.forEach(uiComponent => {
