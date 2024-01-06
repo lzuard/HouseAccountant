@@ -32,7 +32,6 @@
 <style scoped>
     * {
         font-size: 20px;
-        font-family: sans-serif
     }
     #navbar-container {
         display: flex;

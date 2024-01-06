@@ -15,7 +15,8 @@
 
 <style>
     body {
+        font-family: sans-serif;
         margin: 0;
-        background-color: var(--color-app-backround);
+        background-color: var(--color-black-dark);
     }
 </style>
