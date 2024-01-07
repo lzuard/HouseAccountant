@@ -1,12 +1,18 @@
 <template>
-    <button class="main-button">
+    <button class="main-button" :disabled="!isActive">
         <slot></slot>
     </button>
 </template>
 
 <script>
     export default {
-        name: "main-button"
+        name: "main-button",
+        props:{
+            isActive:{
+                type: Boolean,
+                default: true
+            }
+        }
     }
 
 </script>
@@ -28,5 +34,10 @@
     .main-button:active {
         background: var(--color-blue-dark);
         border: 1.5px solid var(--color-blue-dark);
+    }
+    .main-button:disabled{
+        background-color: var(--color-blue-light);
+        border: 1.5px solid var(--color-blue-light);
+        color: var(--color-blue-middle)
     }
 </style>
