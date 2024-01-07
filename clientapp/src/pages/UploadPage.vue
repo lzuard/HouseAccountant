@@ -8,9 +8,10 @@
         <div id="files_container">
             <div id="list_of_files">
                 <p>Uploaded files:</p>
-                    <ul v-for="file in files" :key="file.name">
-                        <li>{{file.name}}</li>
-                    </ul>
+                <ul v-for="file in files" :key="file.name">
+                    <li>{{file.name}}</li>
+                </ul>
+                <main-button @click="uploadFiles" :isActive="files.length">Upload</main-button>
             </div>
             <div id="dnd_zone">
                 <drop-file @filesUpdated="updateFiles"/>
@@ -46,6 +47,9 @@ export default{
             this.files = newFiles
             console.log("files count: "+this.files.length)
         }
+    },
+    uploadFiles(){
+
     }
 }
 

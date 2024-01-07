@@ -23,19 +23,15 @@
             </label>
             <div class="items_container" v-if="files.length">
                 <div v-for="file in files" :key="file.name" class="file_item">
+                    <main-button
+                        class="remove_button"
+                        @click="remove(files.indexOf(file))"
+                    >
+                        <b>×</b>
+                    </main-button>
                     <img src="@/assets/file-icon.png" width="40px" height="40px"/>
                     <div>
                         <p>{{file.name}} - {{Math.round(file.size / 1000) + " kb"}}</p>
-                    </div>
-                    <div>
-                        <main-button
-                            class="ml-2"
-                            type="button"
-                            @click="remove(files.indexOf(file))"
-                            title="Remove file"
-                        >
-                        <b>×</b>
-                        </main-button>
                     </div>
                 </div>
             </div>
