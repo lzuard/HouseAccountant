@@ -14,19 +14,19 @@
 <style scoped>
     .main-button {
         padding: 5px 10px;
-        background: var(--colors-light-blue);
+        background: var(--color-blue-light);
         color: white;
-        border: 1px solid var(--colors-light-blue);
+        border: 1px solid var(--color-blue-light);
         border-radius: 10px;
         margin: 2px;
         font-size: 15px;
     }
     .main-button:hover {
-        background: var(--colors-middle-blue);
-        border: 1px solid var(--colors-middle-blue);
+        background: var(--color-blue-middle);
+        border: 1px solid var(--color-blue-middle);
     }
     .main-button:active {
-        background: var(--colors-dark-blue);
-        border: 1.5px solid var(--colors-dark-blue);
+        background: var(--color-blue-dark);
+        border: 1.5px solid var(--color-blue-dark);
     }
 </style>

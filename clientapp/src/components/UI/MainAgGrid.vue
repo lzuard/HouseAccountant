@@ -62,6 +62,6 @@
     }
     .ag-theme-quartz-dark {
         --ag-background-color: var(--color-app-backround);
-        --ag-header-background-color: var(--colors-middle-blue);
+        --ag-header-background-color: var(--color-blue-middle);
     }
 </style>

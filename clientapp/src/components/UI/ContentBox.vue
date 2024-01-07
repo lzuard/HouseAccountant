@@ -67,7 +67,7 @@ export default{
         
     }
     .container_content{
-        border-top: 2px solid var(--colors-middle-blue);
+        border-top: 2px solid var(--color-blue-middle);
         padding: 20px;
         overflow: hidden;
         transform-origin: top;
