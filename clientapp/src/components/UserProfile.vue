@@ -1,7 +1,6 @@
 <template>
     <div id="profile-container">
         <img src="@/assets/user-icon-example.jpg"/>
-        <label>Никифоров А.В.</label>
     </div>
 </template>
 
@@ -9,25 +8,17 @@
 </script>
 
 <style scoped>
-    img{
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        margin: 0 10px 0 0;
-        user-select: none;
-    }
-    #profile-container {
-        border: solid 0px black;
-        border-radius: 30px;
-        padding: 5px;
-        margin: 5px;
-        display: flex;
-        color: white;
-        align-items: center;
-        background-color: var(--color-blue-light);
-    }
-    #container label{
-        user-select: none;
-        width: 200px
-    }
+#profile-container{
+    margin: 3px;
+}
+img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    user-select: none;
+    border: solid 3px var(--blue-3)
+}
+img:hover{
+    border: solid 3px var(--blue-2)
+}
 </style>

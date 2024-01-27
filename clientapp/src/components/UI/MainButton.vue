@@ -20,16 +20,16 @@
 <style scoped>
     .main-button {
         padding: 5px 10px;
-        background: var(--color-blue-light);
-        color: white;
-        border: 1px solid var(--color-blue-light);
+        background: var(--blue-3);
+        color: black;
+        border: 1px solid var(--blue-3);
         border-radius: 10px;
         margin: 2px;
         font-size: 15px;
     }
     .main-button:hover {
-        background: var(--color-blue-middle);
-        border: 1px solid var(--color-blue-middle);
+        background: var(--blue-4);
+        border: 1px solid var(--blue-4);
     }
     .main-button:active {
         background: var(--color-blue-dark);

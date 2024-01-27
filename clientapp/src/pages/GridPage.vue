@@ -6,7 +6,7 @@
     <main-button @click="uploadData">
         Send data
     </main-button>
-    <main-ag-grid />
+    <!-- <main-ag-grid /> -->
 </template>
 
 <script>

@@ -17,6 +17,6 @@
     body {
         font-family: sans-serif;
         margin: 0;
-        background-color: var(--color-black-dark);
+        background-color: var(--black-5);
     }
 </style>

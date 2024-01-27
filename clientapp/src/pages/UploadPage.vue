@@ -11,7 +11,12 @@
                 <ul v-for="file in files" :key="file.name">
                     <li>{{file.name}}</li>
                 </ul>
-                <main-button @click="uploadFiles" :isActive="files.length">Upload</main-button>
+                <main-button 
+                    @click="uploadFiles" 
+                    :isActive="files.length"
+                    >
+                    Upload
+                </main-button>
             </div>
             <div id="dnd_zone">
                 <drop-file @filesUpdated="updateFiles"/>
@@ -23,7 +28,7 @@
         :isShowContent="true"
         :isHidable="true"
         >
-        <h1>Inside content</h1>
+        <main-ag-grid :header="header" :rowData="rowData"/>
     </content-box>
     <content-box 
         headerText="Confirm" 
@@ -35,21 +40,43 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 
 export default{
-    data(){
+    data() {
         return {
-            files: []
-        }
+            files: [],
+            previewHeader: [],
+            previewRows:[]
+        };
     },
-    methods:{
-        updateFiles(newFiles){
-            this.files = newFiles
-            console.log("files count: "+this.files.length)
-        }
-    },
-    uploadFiles(){
+    methods: {
+        updateFiles(newFiles) {
+            this.files = newFiles;
+            console.log("files count: " + this.files.length);
+        },
+        uploadFiles() {
+            console.log("start upload");
+            let file = this.files[0];
+            let formData = new FormData();
+            formData.append('file', file);
 
+            axios.post(`${process.env.VUE_APP_ROOT_API+process.env.VUE_APP_UPLOAD_API}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }).then(responce => {
+                console.log(responce)
+                this.header = Object.keys(responce.data);
+                this.rowData = responce.data
+                console.log(this.header)
+                console.log(this.rowData)
+            }).catch(error => {
+                console.log(error);
+            });
+
+        }
     }
 }
 

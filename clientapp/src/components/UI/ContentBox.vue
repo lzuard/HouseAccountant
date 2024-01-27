@@ -53,21 +53,21 @@ export default{
 <style scoped>
     .element_container{
         margin: 20px;
-        border-radius: 30px;
-        background-color: var(--color-black-light);
-        color: var(--color-white-light);
+        border-radius: 10px;
+        background-color: var(--black-6);
+        color: var(--black-1);
     }
     .container_header{
         padding:5px 20px 5px 20px;
         overflow: hidden;
         font-size: 30px;
         display: flex;
-        border-radius: 30px;
+        border-radius: 10px;
         justify-content: space-between;
         
     }
     .container_content{
-        border-top: 2px solid var(--color-blue-middle);
+        border-top: 2px solid var(--blue-3);
         padding: 20px;
         overflow: hidden;
         transform-origin: top;

@@ -18,35 +18,41 @@
         components: {
             AgGridVue, // Add AG Grid Vue3 component
         },
-        setup() {
-            const rowData = ref([
-                { Date: "12.12.2023", Time: "11:05", Card: "Platinum", Type: "Grocery", Amount: "10000", Description: "Perekrestok" },
-                { Date: "12.12.2023", Time: "11:05", Card: "Platinum", Type: "Grocery", Amount: "10000", Description: "Perekrestok" },
-                { Date: "12.12.2023", Time: "11:05", Card: "Platinum", Type: "Grocery", Amount: "10000", Description: "Perekrestok" },
-                { Date: "12.12.2023", Time: "11:05", Card: "Platinum", Type: "Grocery", Amount: "10000", Description: "Perekrestok" },
-                { Date: "12.12.2023", Time: "11:05", Card: "Platinum", Type: "Grocery", Amount: "10000", Description: "Perekrestok" },
-                { Date: "12.12.2023", Time: "11:05", Card: "Platinum", Type: "Grocery", Amount: "10000", Description: "Perekrestok" },
-            ])
-            const colDefs = ref([
-                { field: "Date" },
-                { field: "Time" },
-                { field: "Card" },
-                { field: "Type" },
-                { field: "Amount" },
-                { field: "Description" },
+        props: {
+            rowData: Object,
+            header: Object
+        },
+        setup(props) {
 
+            try{
+                console.log(props.rowData)
+            console.log(props.header)
+            let columnDefs = Object.keys(props.header).map(key => ({field: key}))
+            let rowData = Object.keys(props.rowData).reduce((rows, key) =>{
+                console.log("inside")
+                console.log(Object.keys(props.rowData))
+                console.log(props.rowData)
+                props.rowdData[key].foreaach((value, i) => {
+                    rows[i] = rows[i] || {};
+                    rows[i][key] = value;
+                })
+                return rows;
+            }, []);
 
-            ])
             const gridOptions = ref({
                 defaultColDef:{
                     sortable: true,
                     filter: true,
                  },
-                 columnDefs: colDefs.value,
-                 rowData: rowData.value,
+                 columnDefs: columnDefs,
+                 rowData: rowData,
             })
             return {
                 gridOptions
+            }
+            }
+            catch(error){
+                console.log(error);
             }
 
         },

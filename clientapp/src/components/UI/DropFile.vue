@@ -96,7 +96,7 @@ export default{
  }
  .dnd_container{
     padding: 4rem;
-    background-color: var(--color-blue-middle);
+    background-color: var(--blue-3);
     border-radius: 30px;
     width: 100%;
  }

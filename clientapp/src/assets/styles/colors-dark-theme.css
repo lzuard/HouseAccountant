@@ -7,4 +7,35 @@
     --color-blue-light: #2a8afa;
     --color-blue-middle: #286dbd;
     --color-blue-dark: #04428a;
+
+    --blue-1: #EBECFE;
+    --blue-2: #BDC0fc;
+    --blue-3: #8e95fa;
+    --blue-4: #5b69f7;
+    --blue-5: #1a3ce8;
+    --blue-6: #0d2497;
+    
+    --purple-1: #f4eefe;
+    --purple-2: #d8c1fc;
+    --purple-3: #bd8efa;
+    --purple-4: #a653f7;
+    --purple-5: #851bd4;
+    --purple-6: #570e8d;
+    --purple-7: #2d044c;
+
+    --light-blue-1: #dfeefd;
+    --light-blue-2: #8ecbfa;
+    --light-blue-3: #35a7e4;
+    --light-blue-4: #2780af;
+    --light-blue-5: #195B73;
+    --light-blue-6: #0c3950;
+    --light-blue-7: #031926;
+
+    --black-1: #ededee;
+    --black-2: #c4c5c8;
+    --black-3: #9d9ea3;
+    --black-4: #787980;
+    --black-5: #55565b;
+    --black-6: #353539;
+    --black-7: #171819;
 }
