@@ -2,16 +2,18 @@
     <div id="main-grid-container">
         <ag-grid-vue style="height: 500px"
                      class="ag-theme-quartz-dark"
-                     :gridOptions="gridOptions">
+                     :rowData="rowData"
+                     :columnDefs="columnDefs">
         </ag-grid-vue>
     </div>
 </template>
 
 <script>
-    import { ref } from 'vue';
+    // import { ref } from 'vue';
     import "ag-grid-community/styles/ag-grid.css"; // Core CSS
     import "ag-grid-community/styles/ag-theme-quartz.css";  //Theme
     import { AgGridVue } from "ag-grid-vue3"; // Vue Grid Logic
+import { ref } from "vue";
 
     export default {
         name: "main-ag-grid",
@@ -19,43 +21,22 @@
             AgGridVue, // Add AG Grid Vue3 component
         },
         props: {
-            rowData: Object,
-            header: Object
+            rowData: ref([]),
+            columnDefs: ref([])
         },
-        setup(props) {
-
-            try{
-                console.log(props.rowData)
-            console.log(props.header)
-            let columnDefs = Object.keys(props.header).map(key => ({field: key}))
-            let rowData = Object.keys(props.rowData).reduce((rows, key) =>{
-                console.log("inside")
-                console.log(Object.keys(props.rowData))
-                console.log(props.rowData)
-                props.rowdData[key].foreaach((value, i) => {
-                    rows[i] = rows[i] || {};
-                    rows[i][key] = value;
-                })
-                return rows;
-            }, []);
-
-            const gridOptions = ref({
-                defaultColDef:{
-                    sortable: true,
-                    filter: true,
-                 },
-                 columnDefs: columnDefs,
-                 rowData: rowData,
-            })
-            return {
-                gridOptions
-            }
-            }
-            catch(error){
-                console.log(error);
-            }
-
-        },
+        // setup(props) {
+        //     const gridOptions = ref({
+        //         defaultColDef:{
+        //             sortable: true,
+        //             filter: true,
+        //          },
+        //          columnDefs: props.columnDefs,
+        //          rowData: props.rowData,
+        //     })
+        //     return {
+        //         gridOptions
+        //     }
+        // },
     }
 </script>
 

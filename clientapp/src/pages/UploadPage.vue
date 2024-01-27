@@ -13,7 +13,7 @@
                 </ul>
                 <main-button 
                     @click="uploadFiles" 
-                    :isActive="files.length"
+                    :isActive="files.length > 0"
                     >
                     Upload
                 </main-button>
@@ -28,7 +28,7 @@
         :isShowContent="true"
         :isHidable="true"
         >
-        <main-ag-grid :header="header" :rowData="rowData"/>
+        <main-ag-grid :columnDefs="previewHeader" :rowData="previewRows"/>
     </content-box>
     <content-box 
         headerText="Confirm" 
@@ -68,10 +68,16 @@ export default{
                 }
             }).then(responce => {
                 console.log(responce)
-                this.header = Object.keys(responce.data);
-                this.rowData = responce.data
-                console.log(this.header)
-                console.log(this.rowData)
+                let keys = Object.keys(responce.data)
+                this.previewHeader = keys.map(item => ({field: item}))
+                console.log(this.previewHeader)
+                this.previewRows = responce.data[keys[0]].map((_,i) => {
+                    return keys.reduce((obj, key) => {
+                        obj[key] = responce.data[key][i];
+                        return obj;
+                    }, {});
+                })
+                console.log(this.previewRows)
             }).catch(error => {
                 console.log(error);
             });
