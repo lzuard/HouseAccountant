@@ -15,7 +15,7 @@ namespace Tests.Core
         public void Parse()
         {
             ExcelParser parser = new ExcelParser();
-            var data = parser.Parse("E:\\Windows Files\\Downloads\\Финансы (1).xlsx");
+            var data = parser.Parse("E:\\Windows Files\\Downloads\\tink_jan.xlsx");
             foreach (var key in data.Keys)
             {
                 Console.WriteLine(key);
