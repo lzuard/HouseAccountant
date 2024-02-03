@@ -1,4 +1,5 @@
-﻿using Core.ExcelParser;
+﻿using Core.DataWorker;
+using Core.ExcelParser;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -8,16 +9,19 @@ namespace WebAPI.Controllers
     public class UploadController : Controller
     {
         private IExcelParser _parser;
+        private IDataWorker _dataWorker;
 
 
-        public UploadController(IExcelParser parser)
+        public UploadController(IExcelParser parser, IDataWorker dataWorker)
         {
-            this._parser = parser;
+            _parser = parser;
+            _dataWorker = dataWorker;
         }
 
         [HttpGet]
-        public IActionResult GetData()
+        public async Task<IActionResult> GetData([FromBody] IEnumerable<Dictionary<string, string>> data)
         {
+            await _dataWorker.SaveDataAsync(data);
             return Ok();
         }
 
