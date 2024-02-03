@@ -14,4 +14,15 @@ public class DataBaseContext: DbContext
     public DbSet<UserDestinationCategoryMap> UserDestinationCategoryMaps { get; set; }
 
     public DataBaseContext(DbContextOptions options) : base(options){}
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<UserCards>()
+            .HasKey(uc => new { uc.UserId, uc.CardId });
+
+        modelBuilder.Entity<UserDestinationCategoryMap>()
+            .HasKey(udcm => new { udcm.UserId, udcm.CategoryId, udcm.DestinationId });
+    }
+
+
 }

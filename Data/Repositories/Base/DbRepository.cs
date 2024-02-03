@@ -1,6 +1,5 @@
 using Data.Models.Base;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace Data.Repositories.Base;
 

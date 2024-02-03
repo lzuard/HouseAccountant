@@ -7,15 +7,12 @@ namespace Data.Models;
 public class UserDestinationCategoryMap: BundleEntity
 {
     // Foreign keys
-    [Key]
     [ForeignKey(nameof(User))]
     public Guid UserId { get; set; }
     
-    [Key]
     [ForeignKey(nameof(Destination))]
     public Guid DestinationId { get; set; }
     
-    [Key]
     [ForeignKey(nameof(Category))]
     public Guid CategoryId { get; set; }
     
