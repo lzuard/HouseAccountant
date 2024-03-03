@@ -1,13 +1,13 @@
 <template>
     <content-box
-        headerText="Files to upload" 
+        headerText="Загрузка файлов" 
         :isShowContent="true"
         :isHidable="true"
         :defaultIsShowContent="true"
         >
         <div id="files_container">
             <div id="list_of_files">
-                <p>Uploaded files:</p>
+                <p>Загружаемые файлы:</p>
                 <ul v-for="file in files" :key="file.name">
                     <li>{{file.name}}</li>
                 </ul>
@@ -15,7 +15,7 @@
                     @click="uploadFiles" 
                     :isActive="files.length > 0"
                     >
-                    Upload
+                    Загрузить
                 </main-button>
             </div>
             <div id="dnd_zone">
@@ -54,34 +54,25 @@ export default{
     methods: {
         updateFiles(newFiles) {
             this.files = newFiles;
-            console.log("files count: " + this.files.length);
         },
         uploadFiles() {
-            console.log("start upload");
-            let file = this.files[0];
             let formData = new FormData();
-            formData.append('file', file);
+
+            this.files.forEach(file => {
+                formData.append('files', file, file.name)
+            })
 
             axios.post(`${process.env.VUE_APP_ROOT_API+process.env.VUE_APP_UPLOAD_API}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then(responce => {
-                console.log(responce)
-                let keys = Object.keys(responce.data)
-                this.previewHeader = keys.map(item => ({field: item}))
-                console.log(this.previewHeader)
-                this.previewRows = responce.data[keys[0]].map((_,i) => {
-                    return keys.reduce((obj, key) => {
-                        obj[key] = responce.data[key][i];
-                        return obj;
-                    }, {});
-                })
-                console.log(this.previewRows)
+                this.previewHeader = responce.data["header"].map(value => ({field: value}));
+                this.previewRows = responce.data["data"];
             }).catch(error => {
+                console.log("Error ocured");
                 console.log(error);
-            });
-
+            })
         }
     }
 }

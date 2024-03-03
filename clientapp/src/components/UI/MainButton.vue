@@ -32,12 +32,12 @@
         border: 1px solid var(--blue-4);
     }
     .main-button:active {
-        background: var(--color-blue-dark);
-        border: 1.5px solid var(--color-blue-dark);
+        background: var(--blue-3);
+        border: 1.5px solid var(--blue-3);
     }
     .main-button:disabled{
-        background-color: var(--color-blue-light);
-        border: 1.5px solid var(--color-blue-light);
-        color: var(--color-blue-middle)
+        background-color: var(--blue-4);
+        border: 1.5px solid var(--blue-4);
+        color: var(--white-1)
     }
 </style>

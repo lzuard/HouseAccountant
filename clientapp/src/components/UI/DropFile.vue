@@ -5,7 +5,7 @@
             @dragover="dragover"
             @dragleave="dragleave"
             @drop="drop"
-            :style="isDragging && 'background-color: var(--color-blue-light)'"
+            :style="isDragging && 'background-color: var(--blue-3)'"
         >
             <input
                 type="file"
@@ -18,8 +18,8 @@
                 accept=".csv, .xls, .xlsx, .xlsb, .xlsm"
             />
             <label for="file_input" class="file-label">
-                <div v-if="isDragging">Release to drop files here.</div>
-                <div v-else>Drop files in this area or <u>click here</u> to upload.</div>
+                <div v-if="isDragging">Отпустите, чтобы загрузить файлы</div>
+                <div v-else>Перетащите файлы сюда или <u>нажмите</u>, чтобы выбрать</div>
             </label>
             <div class="items_container" v-if="files.length">
                 <div v-for="file in files" :key="file.name" class="file_item">
@@ -60,7 +60,7 @@ export default{
                     bad_files.push(item)
             });
             if (bad_files.length)
-                alert(`Not all files have been uploaded due to wrong file type (allowed: .csv, .xls, .xlsx, .xlsm, .xlsb)\n\n${bad_files.map(item => item.name).join("\n")}`)
+                alert(`Вы пытаетесь загрузить файлы неверного формата (Допустимо: .csv, .xls, .xlsx, .xlsm, .xlsb).\n\nФайлы, которые не были загружены:\n${bad_files.map(item => item.name).join("\n")}`)
             this.files.push(...files_to_upload)
             this.$emit('filesUpdated', this.files)
         },

@@ -1,6 +1,7 @@
 ﻿using Core.DataWorker;
 using Core.ExcelParser;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace WebAPI.Controllers
 {
@@ -25,13 +26,32 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> PostData([FromForm] IFormFile file)
-        {
-            using var stream = file.OpenReadStream();
-            var data = _parser.Parse(stream);
 
-            return Ok(data);
+        /// <summary>
+        /// Get file and return preview
+        /// </summary>
+        /// <param name="file">Excel file</param>
+        /// <returns>Json with paresd file</returns>
+        [HttpPost]
+        public async Task<IActionResult> PostData([FromForm] IEnumerable<IFormFile> files)
+        {
+            if (!files.Any())
+                return BadRequest();
+
+            var streamsList = new List<Stream>();
+            foreach (var file in files)
+            {
+                streamsList.Add(file.OpenReadStream());
+            }
+            var (header, parsedData) = await _parser.ParseNewAsync(streamsList);
+            var result = new
+            {
+                header = header,
+                data = parsedData
+            };
+            var json = JsonConvert.SerializeObject(result, Formatting.Indented);
+
+            return Ok(json);
         }
     }
 }
